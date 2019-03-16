@@ -1,3 +1,24 @@
+Vue.component('app-username', {
+  props: {
+    username: {
+      type: String,
+      default: '',
+    },
+  },
+  data: () => {
+    return {
+      // name: 'Neevor',
+    };
+  },
+  methods: {
+    usernameClicked: function() {
+      this.$emit('usrclicked', this.username);
+    },
+  },
+  template:
+    '<p  v-on:click="usernameClicked">{{ username }}</p>',
+});
+
 new Vue({
   el: '#app',
   data: {
@@ -22,6 +43,9 @@ new Vue({
     getColor(number) {
       console.log('Number:', number, typeof number);
       return number % 2 === 0 ? 'blue' : 'red';
+    },
+    userWasClicked(name) {
+      alert(name);
     },
   },
 });

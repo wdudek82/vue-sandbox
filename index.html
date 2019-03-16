@@ -9,6 +9,11 @@
   </head>
   <body>
     <div id="app">
+      <app-username
+        v-bind:username="'Neevor'"
+        v-on:usrclicked="userWasClicked($event)"
+      ></app-username>
+      <app-username v-bind:username="'Anna'"></app-username>
       <p v-bind:class="{updated: name !== 'Max'}">{{ name }}</p>
       <p v-if="name !== 'Max'">Name updated!</p>
       {{ number }}
