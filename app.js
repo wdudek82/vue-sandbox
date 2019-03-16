@@ -7,7 +7,7 @@ Vue.component('app-username', {
   },
   data: () => {
     return {
-      // name: 'Neevor',
+      name: 'Neevor',
     };
   },
   methods: {
@@ -49,3 +49,10 @@ new Vue({
     },
   },
 });
+
+new Vue({
+  el: '#app2',
+  data: {
+    message: 'Hello there',
+  },
+})
