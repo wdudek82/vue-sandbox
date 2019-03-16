@@ -4,166 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="styles.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Vue App</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><a href="#aaa">aaa</a></li>
-          <li><a href="#bbb">bbb</a></li>
-          <li><a href="#ccc">ccc</a></li>
-          <li><a href="#ddd">ddd</a></li>
-          <li><a href="#eee">eee</a></li>
-        </ul>
-      </nav>
-      <div class="jumbotron">
-        <h1>Hello, World!</h1>
+    <div id="app">
+      <p v-bind:class="{updated: name !== 'Max'}">{{ name }}</p>
+      <p v-if="name !== 'Max'">Name updated!</p>
+      {{ number }}
+
+      <div>
+        <button type="button" role="button" v-on:click="changeName">
+          Change Name
+        </button>
       </div>
-    </header>
 
-    <div class="dropdown show">
-      <a
-        class="btn btn-secondary dropdown-toggle"
-        href="#"
-        role="button"
-        id="dropdownMenuLink"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="false"
-      >
-        Dropdown link
-      </a>
-
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+      <button v-on:click="addElement">New Element</button>
+      <ul>
+        <li
+          v-for="el in elements"
+          v-bind:id="'el' + el"
+          v-bind:style="{ background: getColor(el)}"
+        >
+          Element {{ el }}
+        </li>
+      </ul>
+      <div>
+        <button v-on:click="decCounter">-</button>
+        <button v-on:click="incCounter">+</button>
       </div>
     </div>
 
-    <main>
-      <div class="container bg-light">
-        <a id="aaa" class="anchor">aaa</a>
-          <h2>AAA</h2>
-        <div class="item">
-          <p>&nbsp;</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Architecto, qui?
-          </p>
-        </div>
-      </div>
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" />
+    </div>
 
-      <div class="container bg-light">
-        <h2>BBB</h2>
-        <a id="bbb" class="anchor"></a>
-        <div class="item">
-          <p>&nbsp;</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Architecto, qui?
-          </p>
-        </div>
-      </div>
-
-      <div class="container bg-light">
-        <h2>CCC</h2>
-        <a id="ccc" class="anchor"></a>
-        <div class="item">
-          <p>&nbsp;</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Architecto, qui?
-          </p>
-        </div>
-      </div>
-
-      <h2 id="ddd">DDD</h2>
-      <div class="container bg-light">
-        <div class="item">
-          <p>&nbsp;</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Architecto, qui?
-          </p>
-        </div>
-      </div>
-
-      <h2 id="eee">EEE</h2>
-      <div class="container bg-light">
-        <div class="item">
-          <p>&nbsp;</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem ipsum dolor sit amet consectetur.</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>Lorem</p>
-        </div>
-        <div class="item text-white text-center">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Architecto, qui?
-          </p>
-        </div>
-      </div>
-    </main>
-
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
   </body>
 </html>
