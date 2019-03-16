@@ -17,7 +17,13 @@
 
       <button v-on:click="addElement">New Element</button>
       <ul>
-        <li v-for="el in elements">Element {{ el }}</li>
+        <li
+          v-for="el in elements"
+          v-bind:id="'el' + el"
+          v-bind:style="{ background: getColor(el)}"
+        >
+          Element {{ el }}
+        </li>
       </ul>
       <div>
         <button v-on:click="decCounter">-</button>

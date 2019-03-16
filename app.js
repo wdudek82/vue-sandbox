@@ -6,7 +6,7 @@ new Vue({
     elements: [],
   },
   methods: {
-    changeName(e) {
+    changeName() {
       this.name = 'Manu';
       console.log('Clicked!', this);
     },
@@ -18,6 +18,10 @@ new Vue({
     },
     addElement() {
       this.elements.push(this.elements.length + 1);
+    },
+    getColor(number) {
+      console.log('Number:', number, typeof number);
+      return number % 2 === 0 ? 'blue' : 'red';
     },
   },
 });

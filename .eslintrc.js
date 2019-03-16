@@ -7,14 +7,14 @@ module.exports = {
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
+    Vue: 'readonly',
   },
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  plugins: [
-    'vue',
-  ],
+  plugins: ['vue'],
   rules: {
+    'no-new': 0,
   },
 };
