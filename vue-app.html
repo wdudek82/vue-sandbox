@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue App</title>
+  </head>
+  <body>
+    <div id="app">
+      {{ name }}
+      <p v-if="name !== 'Max'">Name updated!</p>
+      {{ number }}
+      <button type="button" role="button" v-on:click="changeName">
+        Change Name
+      </button>
+
+      <button v-on:click="addElement">New Element</button>
+      <ul>
+        <li v-for="el in elements">Element {{ el }}</li>
+      </ul>
+      <div>
+        <button v-on:click="decCounter">-</button>
+        <button v-on:click="incCounter">+</button>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

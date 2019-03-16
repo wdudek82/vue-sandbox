@@ -1,0 +1,96 @@
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  /* margin-top: 8rem; */
+}
+
+nav {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background: rgba(51, 51, 51, 0.801);
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+}
+
+main {
+  /* margin-top: 5rem; */
+}
+
+nav > ul {
+  display: flex;
+  list-style: none;
+}
+
+nav li > a {
+  color: #fff;
+  margin-right: 1rem;
+  text-decoration: none;
+}
+
+.jumbotron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: deepskyblue;
+  height: 300px;
+  margin-top: 80px;
+}
+
+.anchor {
+  position: absolute;
+  display: block;
+  top: -60px;
+  visibility: hidden;
+}
+
+.container {
+  background: #ccc;
+  height: 400px;
+}
+
+.item {
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  margin: 10px;
+  background: steelblue;
+  clear: both;
+  vertical-align: middle;
+}
+
+.item {
+  position: relative;
+  /* border-bottom: 5px solid orange; */
+}
+
+.item::after {
+  position: absolute;
+  content: '';
+  border-bottom: 7px solid orange;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /* transition: width 300ms ease-in-out; */
+}
+
+.item:hover::after {
+  animation: animated-underline 500ms forwards;
+}
+
+@keyframes animated-underline {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%
+  }
+}
