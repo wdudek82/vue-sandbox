@@ -48,9 +48,29 @@
   <div>
     <input type="text" @keyup.enter="alertMe">
   </div>
+
+
+</div>
+
+<!-- Assignment 2 -->
+<div id="exercise">
+  <h2>Assignment 2</h2>
+  <div>
+    <button @click="handleButtonClicked">Show Alert</button>
+  </div>
+  <div>
+    <label for="key-pressed">Key Pressed</label>
+    <input type="text" id="key-pressed" @keydown="value = $event.target.value">
+    <p>{{ value }}</p>
+  </div>
+  <div>
+    <label for="key-pressed-1">Press Enter</label>
+    <input type="text" id="key-pressed-1" @keydown.enter="value = $event.target.value">
+  </div>
 </div>
 
 <script src="http://unpkg.com/vue/dist/vue.js"></script>
 <script src="app.js"></script>
+<script src="assignment-2.js"></script>
 </body>
 </html>
