@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html
+  lang="en"
+  xmlns:v-on="http://www.w3.org/1999/xhtml"
+  xmlns:v-bind="http://www.w3.org/1999/xhtml"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,7 +50,45 @@
       <p>{{ message }}</p>
     </div>
 
+    <hr />
+
+    <div id="assignment1">
+      <p v-if="showMessage" v-bind:style="{ background: msgBgColor }">
+        {{ message }}
+      </p>
+      <h2>
+        Hobbies (<span v-bind:class="{'many-hobbies': hobbies.length > 3 }"
+          >{{hobbies.length}}</span
+        >)
+      </h2>
+
+      <form v-on:submit="handleHobbySubmit">
+        <label for="hobby">New hobby</label>
+        <input v-model="newHobby" type="text" name="hobby" id="hobby" />
+        <button type="submit">Add</button>
+      </form>
+
+      <!--<ul>-->
+      <!--<li-->
+      <!--v-for="hobby in hobbies"-->
+      <!--v-bind:id="hobby"-->
+      <!--v-on:click="handleHobbyRemoval(hobby)"-->
+      <!--&gt;-->
+      <!--{{ hobby }}-->
+      <!--</li>-->
+      <!--</ul>-->
+
+      <ul>
+        <app-hobby
+          v-for="hobby in hobbies"
+          v-bind:hobby="hobby"
+          v-on:hbyclicked="removeHobby(hobby)"
+        ></app-hobby>
+      </ul>
+    </div>
+
     <script src="https://unpkg.com/vue"></script>
     <script src="app.js"></script>
+    <script src="assignment-1.js"></script>
   </body>
 </html>

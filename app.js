@@ -5,7 +5,7 @@ Vue.component('app-username', {
       default: '',
     },
   },
-  data: () => {
+  data: function() {
     return {
       name: 'Neevor',
     };
@@ -15,8 +15,7 @@ Vue.component('app-username', {
       this.$emit('usrclicked', this.username);
     },
   },
-  template:
-    '<p  v-on:click="usernameClicked">{{ username }}</p>',
+  template: '<p  v-on:click="usernameClicked">{{ username }}</p>',
 });
 
 new Vue({
@@ -55,4 +54,4 @@ new Vue({
   data: {
     message: 'Hello there',
   },
-})
+});

@@ -1,4 +1,8 @@
 .updated {
-  background: darkgoldenrod;
+  background: orange;
   color: #fff;
+}
+
+.many-hobbies {
+  color: darkgreen;
 }
