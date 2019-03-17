@@ -1,4 +1,5 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es6: true,
@@ -7,12 +8,11 @@ module.exports = {
     'plugin:vue/recommended',
     'eslint:recommended',
     'prettier/vue',
-    // 'plugin:prettier/recommended'
+    // 'plugin:prettier/recommended',
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
-    Vue: 'readonly',
   },
   parserOptions: {
     ecmaFeatures: {
@@ -20,14 +20,12 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: 'module',
+    parser: 'babel-eslint',
   },
-  plugins: ['vue'],
-  rules: {
-    'no-console': 1,
+  plugins: ['html', 'vue'],
 
-    /**
-     * Best Practices
-     */
+  rules: {
+    /* Best Practices */
     'no-unused-expressions': ['error', { allowTaggedTemplates: true }],
     'no-unused-vars': [
       'error',
@@ -39,17 +37,13 @@ module.exports = {
       },
     ],
 
-    /**
-     * ECMAScript 6
-     */
+    /* ECMAScript 6 */
     'arrow-body-style': 0,
     'arrow-parens': ['error', 'always'],
     'function-paren-newline': ['error', 'consistent'],
     'no-confusing-arrow': 0,
 
-    /**
-     * Stylistic
-     */
+    /* Stylistic */
     'comma-dangle': [
       'warn',
       {
@@ -67,18 +61,16 @@ module.exports = {
     'implicit-arrow-linebreak': 0,
     'object-curly-newline': ['error', { consistent: true }],
 
-    /**
-     * Vue
-     */
-    'vue/max-attributes-per-line': [
-      'error',
-      {
-        singleline: 20,
-        multiline: {
-          max: 1,
-          allowFirstLine: false,
-        },
-      },
-    ],
+    // /* Vue */
+    // 'vue/max-attributes-per-line': [
+    //   'error',
+    //   {
+    //     singleline: 1,
+    //     multiline: {
+    //       max: 1,
+    //       allowFirstLine: false,
+    //     },
+    //   },
+    // ],
   },
 };
