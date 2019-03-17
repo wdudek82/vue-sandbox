@@ -8,7 +8,7 @@
   <title>VueJS the Complete Guide</title>
 </head>
 <body>
-<div id="app">
+<div id="app" @mousemove="updateCoordinates">
   <h1 v-once>{{ title }}</h1>
 
   <input @input="changeTitle" type="text" name="" id="" />
@@ -31,6 +31,22 @@
   <div>
     <label for="name"></label>
     <input v-model="name" type="text" name="name" id="name">
+  </div>
+
+  <!-- Section 1,16 -->
+  <div>
+    <p>{{ counter }}</p>
+    <button type="button" role="button" @click="updCounter($event, -10)">-</button>
+    <button type="button" role="button" @click="updCounter($event, 10)">+</button>
+  </div>
+
+  <div>
+    <p>Coordinates: {{ x }} / {{ y }}</p>
+    - <span @mousemove.stop>DEAD SPOT</span>
+  </div>
+
+  <div>
+    <input type="text" @keyup.enter="alertMe">
   </div>
 </div>
 
