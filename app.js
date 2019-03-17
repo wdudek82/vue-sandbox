@@ -1,57 +1,23 @@
-Vue.component('app-username', {
-  props: {
-    username: {
-      type: String,
-      default: '',
-    },
-  },
-  data: function() {
-    return {
-      name: 'Neevor',
-    };
-  },
-  methods: {
-    usernameClicked: function() {
-      this.$emit('usrclicked', this.username);
-    },
-  },
-  template: '<p  v-on:click="usernameClicked">{{ username }}</p>',
-});
-
 new Vue({
   el: '#app',
   data: {
-    name: 'Max',
-    number: 0,
-    elements: [],
+    title: 'Hello!',
+    link: 'http://google.com',
+    finishedLink: '<a href="http://google.com">Google</a>',
+    name: 'Wojtek',
+    age: 37,
+    loremPixel: 'http://lorempixel.com/250/250/',
   },
   methods: {
-    changeName() {
-      this.name = 'Manu';
-      console.log('Clicked!', this);
+    changeTitle(e) {
+      this.title = e.target.value;
     },
-    incCounter() {
-      this.number += 1;
+    sayHello(name) {
+      this.title = `Hello, ${name}!`;
+      return this.title;
     },
-    decCounter() {
-      this.number -= 1;
+    randomFloat() {
+      return Math.random();
     },
-    addElement() {
-      this.elements.push(this.elements.length + 1);
-    },
-    getColor(number) {
-      console.log('Number:', number, typeof number);
-      return number % 2 === 0 ? 'blue' : 'red';
-    },
-    userWasClicked(name) {
-      alert(name);
-    },
-  },
-});
-
-new Vue({
-  el: '#app2',
-  data: {
-    message: 'Hello there',
   },
 });

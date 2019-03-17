@@ -1,94 +1,40 @@
 <!DOCTYPE html>
 <html
-  lang="en"
-  xmlns:v-on="http://www.w3.org/1999/xhtml"
-  xmlns:v-bind="http://www.w3.org/1999/xhtml"
+    lang="en"
+    xmlns:v-bind="http://www.w3.org/1999/xhtml"
 >
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Vue App</title>
-  </head>
-  <body>
-    <div id="app">
-      <app-username
-        v-bind:username="'Neevor'"
-        v-on:usrclicked="userWasClicked($event)"
-      ></app-username>
-      <app-username v-bind:username="'Anna'"></app-username>
-      <p v-bind:class="{updated: name !== 'Max'}">{{ name }}</p>
-      <p v-if="name !== 'Max'">Name updated!</p>
-      {{ number }}
+<head>
+  <meta charset="UTF-8" />
+  <title>VueJS the Complete Guide</title>
+</head>
+<body>
+<div id="app">
+  <h1 v-once>{{ title }}</h1>
 
-      <div>
-        <button type="button" role="button" v-on:click="changeName">
-          Change Name
-        </button>
-      </div>
+  <input @input="changeTitle" type="text" name="" id="" />
 
-      <button v-on:click="addElement">New Element</button>
-      <ul>
-        <li
-          v-for="el in elements"
-          v-bind:id="'el' + el"
-          v-bind:style="{ background: getColor(el)}"
-        >
-          Element {{ el }}
-        </li>
-      </ul>
-      <div>
-        <button v-on:click="decCounter">-</button>
-        <button v-on:click="incCounter">+</button>
-      </div>
-    </div>
+  <p>{{ sayHello('Max') }} - <a v-bind:href="link">link</a></p>
 
-    <div id="app2">
-      <label for="name">Name</label>
-      <input type="text" id="name" v-model="message" />
-      <p>{{ message }}</p>
-    </div>
+  <hr />
 
-    <hr />
+  <p v-html="finishedLink"></p>
 
-    <div id="assignment1">
-      <p v-if="showMessage" v-bind:style="{ background: msgBgColor }">
-        {{ message }}
-      </p>
-      <h2>
-        Hobbies (<span v-bind:class="{'many-hobbies': hobbies.length > 3 }"
-          >{{hobbies.length}}</span
-        >)
-      </h2>
+  <!-- Assignment 1 -->
+  <p>{{ name }} ({{ age }})</p>
+  <p>Age multiplied by 3: {{ age * 3 }}</p>
+  <p>Random float between 0 and 1: {{ randomFloat() }}</p>
+  <figure>
+    <img v-bind:src="loremPixel" alt="LoremPixel random picture placeholder">
+    <figcaption>Random image from LoremPixel</figcaption>
+  </figure>
 
-      <form v-on:submit="handleHobbySubmit">
-        <label for="hobby">New hobby</label>
-        <input v-model="newHobby" type="text" name="hobby" id="hobby" />
-        <button type="submit">Add</button>
-      </form>
+  <div>
+    <label for="name"></label>
+    <input v-model="name" type="text" name="name" id="name">
+  </div>
+</div>
 
-      <!--<ul>-->
-      <!--<li-->
-      <!--v-for="hobby in hobbies"-->
-      <!--v-bind:id="hobby"-->
-      <!--v-on:click="handleHobbyRemoval(hobby)"-->
-      <!--&gt;-->
-      <!--{{ hobby }}-->
-      <!--</li>-->
-      <!--</ul>-->
-
-      <ul>
-        <app-hobby
-          v-for="hobby in hobbies"
-          v-bind:hobby="hobby"
-          v-on:hbyclicked="removeHobby(hobby)"
-        ></app-hobby>
-      </ul>
-    </div>
-
-    <script src="https://unpkg.com/vue"></script>
-    <script src="app.js"></script>
-    <script src="assignment-1.js"></script>
-  </body>
+<script src="http://unpkg.com/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+</body>
 </html>

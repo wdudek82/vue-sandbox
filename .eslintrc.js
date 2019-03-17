@@ -13,6 +13,7 @@ module.exports = {
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
+    Vue: 'readonly',
   },
   parserOptions: {
     ecmaFeatures: {
