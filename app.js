@@ -1,50 +1,13 @@
 new Vue({
   el: '#app',
   data: {
-    counter: 0,
-    secondCounter: 0,
-  },
-  computed: {
-    output() {
-      return this.counter % 2 === 0 ? 'Even' : 'Odd';
-    },
-  },
-  watch: {
-    counter(value) {
-      const vm = this;
-
-      setTimeout(() => (vm.counter = 0), 2000);
-    },
-  },
-  methods: {
-    updCounter() {
-    },
-  },
-});
-
-new Vue({
-  el: '#app2',
-  data: {
-    attachRed: false,
-    attachGreen: false,
-    attachBlue: false,
-    color: 'green',
-    hex: '#ccc',
-    rounded: 'rounded',
-    range: 0,
-  },
-  computed: {
-    divClasses() {
-      return {
-        red: this.attachRed,
-        blue: !this.attachRed,
-      };
-    },
-    computedStyles() {
-      return {
-        background: this.hex,
-        borderRadius: `${this.range}%`,
-      };
+    show: 1,
+    users: [
+      { name: 'John Doe', age: '38' },
+      { name: 'Jane Doe', age: '28' },
+    ],
+    testObj: {
+      name: 'TESTOBJ', data: [1.67, 1.33, 0.98, 2.21, 5],
     },
   },
 });

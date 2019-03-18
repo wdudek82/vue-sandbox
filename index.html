@@ -3,45 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="styles/main.css" />
-  <title>vuejs-2-the-complete-guide</title>
+  <title>Section 3</title>
 </head>
 <body>
 <div id="app">
-  <p>
-    Counter: {{ counter }} | Second: {{ secondCounter }}
-  </p>
-  <p>
-    Result: {{ output }}
-  </p>
-  <div>
-    <button @click="counter--">-</button>
-    <button @click="counter++">+</button>
-    <button @click="secondCounter++">++</button>
-  </div>
-</div>
-
-<div id="app2">
-  <div
-      class="demo"
-      :class="divClasses"
-      @click="attachRed = !attachRed"
-  ></div>
-  <div
-      class="demo"
-      :class="[rounded, {green: attachGreen}]"
-      @click="attachGreen = !attachGreen"
-  ></div>
-  <div class="demo" :style="computedStyles"></div>
+  <p v-if="show % 15 === 0">FizBaz!</p>
+  <p v-else-if="show % 3 === 0">Fiz</p>
+  <p v-else-if="show % 5 === 0">Baz</p>
+  <p v-else>---</p>
+  <button @click="show += 1">Click! ({{ show }})</button>
 
   <div>
-    <label for="rounded">Range</label>
-    <input type="range" v-model="range" id="rounded" min="0" max="50">
-    <span>{{ range }}</span>
+    <ul>
+      <li v-for="{name, age} in users">{{ name }} ({{ age }})</li>
+    </ul>
   </div>
 
   <div>
-    <label for="hex">Color</label>
-    <input type="text" id="hex" v-model="hex" />
+    <ul>
+      <li v-for="(v, k) in testObj">
+        <template v-if="typeof v !== 'object'">{{ v }}</template>
+        <template v-else>{{ k }}:</template>
+        <ul v-if="typeof v === 'object'">
+          <li v-for="item in v">{{ item }}</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
 

@@ -11,10 +11,14 @@ new Vue({
   },
   methods: {
     updWidth() {
-      const vm = this;
-      setInterval(() => {
-        vm.width += 1;
+      const interval = setInterval(() => {
+        console.log('progress bar updated:', this.width);
+        this.width += 1;
       }, 1000);
+
+      if (this.width >= 100) {
+        clearInterval(interval);
+      }
     },
   },
 });
