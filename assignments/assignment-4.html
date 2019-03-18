@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"
+  /
+  <title>Assignment 4</title>
+  <style>
+    .progress-bar__container {
+      background: #ccc;
+      width: 500px;
+      height: 20px;
+    }
+  </style>
+</head>
+<body>
+<div id="exercise">
+  <div class="progress-bar__container">
+    <div :style="[progressBar, {width: width + '%'}]"></div>
+  </div>
+  <button @click="updWidth">Go!</button>
+</div>
+
+<script src="http://unpkg.com/vue/dist/vue.js"></script>
+<script src="assignment-4.js"></script>
+</body>
+</html>

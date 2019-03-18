@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles/main.css" />
   <title>vuejs-2-the-complete-guide</title>
 </head>
 <body>
-
 <div id="app">
   <p>
     Counter: {{ counter }} | Second: {{ secondCounter }}
@@ -17,6 +17,31 @@
     <button @click="counter--">-</button>
     <button @click="counter++">+</button>
     <button @click="secondCounter++">++</button>
+  </div>
+</div>
+
+<div id="app2">
+  <div
+      class="demo"
+      :class="divClasses"
+      @click="attachRed = !attachRed"
+  ></div>
+  <div
+      class="demo"
+      :class="[rounded, {green: attachGreen}]"
+      @click="attachGreen = !attachGreen"
+  ></div>
+  <div class="demo" :style="computedStyles"></div>
+
+  <div>
+    <label for="rounded">Range</label>
+    <input type="range" v-model="range" id="rounded" min="0" max="50">
+    <span>{{ range }}</span>
+  </div>
+
+  <div>
+    <label for="hex">Color</label>
+    <input type="text" id="hex" v-model="hex" />
   </div>
 </div>
 
