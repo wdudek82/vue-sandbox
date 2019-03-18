@@ -3,34 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="styles/main.css" />
-  <title>Section 3</title>
+  <title>Section 5</title>
 </head>
 <body>
-<div id="app">
-  <p v-if="show % 15 === 0">FizBaz!</p>
-  <p v-else-if="show % 3 === 0">Fiz</p>
-  <p v-else-if="show % 5 === 0">Baz</p>
-  <p v-else>---</p>
-  <button @click="show += 1">Click! ({{ show }})</button>
+<header>
+  <h1>Section 5: Understanding the VueJS Instance</h1>
+</header>
 
-  <div>
-    <ul>
-      <li v-for="{name, age} in users">{{ name }} ({{ age }})</li>
-    </ul>
-  </div>
+<div id="app1">
+  <h2 ref="heading">{{ title }}</h2>
+  <button @click="onClick" ref="myButton">Click</button>
 
-  <div>
-    <ul>
-      <li v-for="(v, k) in testObj">
-        <template v-if="typeof v !== 'object'">{{ v }}</template>
-        <template v-else>{{ k }}:</template>
-        <ul v-if="typeof v === 'object'">
-          <li v-for="item in v">{{ item }}</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
+  <button @click="destroy">Destroy</button>
+
+  <hello></hello>
+  <hello></hello>
 </div>
+
+<div id="app2">
+  <h2>{{ title }}</h2>
+  <button @click="onChange">Change in Vue1</button>
+</div>
+
+<div id="app3"></div>
 
 <script src="http://unpkg.com/vue/dist/vue.js"></script>
 <script src="app.js"></script>

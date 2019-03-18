@@ -1,0 +1,23 @@
+.demo {
+  display: inline-block;
+  background: gray;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.red {
+  background: red;
+}
+
+.green {
+  background: green;
+}
+
+.blue {
+  background: blue;
+}
+
+.rounded {
+  border-radius: 5%;
+}
