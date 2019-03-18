@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html
+    lang="en"
+    xmlns:v-bind="http://www.w3.org/1999/xhtml"
+>
+<head>
+  <meta charset="UTF-8" />
+  <title>VueJS the Complete Guide</title>
+</head>
+<body>
+<div id="app" @mousemove="updateCoordinates">
+  <h1 v-once>{{ title }}</h1>
+
+  <input @input="changeTitle" type="text" name="" id="" />
+
+  <p>{{ sayHello('Max') }} - <a v-bind:href="link">link</a></p>
+
+  <hr />
+
+  <p v-html="finishedLink"></p>
+
+  <!-- Assignment 1 -->
+  <p>{{ name }} ({{ age }})</p>
+  <p>Age multiplied by 3: {{ age * 3 }}</p>
+  <p>Random float between 0 and 1: {{ randomFloat() }}</p>
+  <figure>
+    <img v-bind:src="loremPixel" alt="LoremPixel random picture placeholder">
+    <figcaption>Random image from LoremPixel</figcaption>
+  </figure>
+
+  <div>
+    <label for="name"></label>
+    <input v-model="name" type="text" name="name" id="name">
+  </div>
+
+  <!-- Section 1,16 -->
+  <div>
+    <p>{{ counter }}</p>
+    <button type="button" role="button" @click="updCounter($event, -10)">-</button>
+    <button type="button" role="button" @click="updCounter($event, 10)">+</button>
+  </div>
+
+  <div>
+    <p>Coordinates: {{ x }} / {{ y }}</p>
+    - <span @mousemove.stop>DEAD SPOT</span>
+  </div>
+
+  <div>
+    <input type="text" @keyup.enter="alertMe">
+  </div>
+
+
+</div>
+
+<!-- Assignment 2 -->
+<div id="exercise">
+  <h2>Assignment 2</h2>
+  <div>
+    <button @click="handleButtonClicked">Show Alert</button>
+  </div>
+  <div>
+    <label for="key-pressed">Key Pressed</label>
+    <input type="text" id="key-pressed" @input="value = $event.target.value">
+    <p>{{ value }}</p>
+  </div>
+  <div>
+    <label for="key-pressed-1">Press Enter</label>
+    <input type="text" id="key-pressed-1" @keydown.enter="value = $event.target.value">
+  </div>
+</div>
+
+<script src="http://unpkg.com/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+<script src="assignment-2.js"></script>
+</body>
+</html>

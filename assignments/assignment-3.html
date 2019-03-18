@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment 3</title>
+</head>
+<body>
+
+<div id="exercise">
+  <p>Current Value: {{ value }}</p>
+  <button @click="value += 5">Add 5</button>
+  <button @click="value += 1">Add 1</button>
+  <p>{{ result }}</p>
+  <div>
+    <label for="reset">Reset after sec</label>
+    <input v-model="resetAfter" type="number" id="reset" min="1000" step="1000">
+  </div>
+</div>
+
+<script src="http://unpkg.com/vue/dist/vue.js"></script>
+<script src="assignment-3.js"></script>
+</body>
+</html>
